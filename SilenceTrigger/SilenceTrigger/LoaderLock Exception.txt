@@ -1,0 +1,12 @@
+LoaderLock Exception
+
+When debugging a solution that uses DXVUMeterNET you may receive the "LoaderLock was detected" exception.
+This exception is normal and can be safely ignored.
+
+Please follow these steps to disable VisualStudio's handling of this exception so that you can debug your applications:
+- Click Debug->Exceptions
+- Expand the "Managed Debugging Assistances" node
+- Locate the "LoaderLock" exception
+- Uncheck it (from the "Thrown" column)
+- Click OK
+- Enjoy your DXVUMeterNET enabled application!
