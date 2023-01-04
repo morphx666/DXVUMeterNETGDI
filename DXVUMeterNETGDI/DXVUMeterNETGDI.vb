@@ -606,18 +606,18 @@ Public Class DXVUMeterNETGDI
 
         If bandWidth <= 0 Then
             If channel = FFTChannelConstants.Left Then
-                v = (fftL(fftIdx) / windowSum * 2).Power()
+                v = 2 * fftL(fftIdx).Power() / windowSum
             Else
-                v = (fftR(fftIdx) / windowSum * 2).Power()
+                v = 2 * fftR(fftIdx).Power() / windowSum
             End If
         Else
             ' FIXME: This looks so wrong!
             '        See how this was implemented in FFTAverageFromIndex
             For i As Integer = Max(fftMin, fftIdx - bandWidth) To Min(fftMax, fftIdx + bandWidth)
                 If channel = FFTChannelConstants.Left Then
-                    v += (fftL(i) / windowSum * 2).Power()
+                    v += 2 * fftL(i).Power() / windowSum
                 Else
-                    v += (fftR(i) / windowSum * 2).Power()
+                    v += 2 * fftR(i).Power() / windowSum
                 End If
                 v /= bandWidth * 2
             Next
